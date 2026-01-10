@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio – Jess-chic | styliste modeliste</title>
+    <meta
+      name="description"
+      content="Portfolio professionnel de J-beno, graphiste designer. Projets, services et contact."
+    />
+    <meta name="theme-color" content="#111111" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Portfolio – J-beno | Graphiste & Designer"
+    />
+    <meta
+      property="og:description"
+      content="Découvrez mes projets de design graphique, branding et UI/UX."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og-image.jpg" />
+    <meta property="og:url" content="https://exemple.com" />
+
+    <!-- Favicon (optionnel) -->
+    <link rel="icon" href="assets/favicon.png" />
+
+    <style>
+      :root {
+        --mar: #2c1c26;
+        --bg: #0f0f12;
+        --text: #e9e9ef;
+        --muted: #b7b7c3;
+        --primary: #36342c;
+        --accent: #6cd4ff;
+        --card: #1b1819;
+        --border: #1b1b1d;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+        --radius-sm: 10px;
+        --max: 1100px;
+        --font: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      html,
+      body {
+        background: var(--mar);
+        color: var(--text);
+        font-family: var(--font);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background: linear-gradient(
+          180deg,
+          rgba(15, 15, 18, 0.85),
+          rgba(15, 15, 18, 0.65)
+        );
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        box-shadow: var(--shadow);
+      }
+      .brand h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+      .brand span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .menu {
+        display: flex;
+        gap: 20px;
+      }
+      .menu a {
+        padding: 10px 12px;
+        border-radius: 10px;
+        color: var(--muted);
+      }
+      .menu a:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .cta {
+        background: var(--primary);
+        color: #1a1a1a;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-weight: 600;
+        box-shadow: pink 0 5px 15px rgba(255, 212, 90, 0.4);
+      }
+      .cta:hover {
+        filter: brightness(1.05);
+      }
+
+      /* Hero */
+      .hero {
+        padding: 70px 0 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero h2 {
+        font-size: 44px;
+        line-height: 1.1;
+        margin: 0 0 16px;
+      }
+      .hero p {
+        color: var(--muted);
+        font-size: 16px;
+        margin: 0 0 22px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+      }
+      .chip {
+        border: 1px solid var(--border);
+        color: var(--text);
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 13px;
+      }
+      .hero-card {
+        background: linear-gradient(180deg, #15161d, #101116);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+      .hero-preview {
+        aspect-ratio: 16/10;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #20222b, #14151a);
+        border: 1px solid var(--border);
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+      }
+
+      /* Section Head */
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        margin: 36px 0 18px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 10px;
+      }
+      .section-head h3 {
+        margin: 0;
+        font-size: 22px;
+      }
+      .section-head p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Filters */
+      .filters {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .filter {
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 13px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .filter.active {
+        color: #141414;
+        background: var(--primary);
+        border-color: transparent;
+        font-weight: 600;
+      }
+
+      /* Gallery */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .thumb {
+        aspect-ratio: 4/3;
+        background: #1c1d24;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 12px 12px 14px;
+      }
+      .title {
+        font-size: 16px;
+        margin: 0 0 6px;
+      }
+      .meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .tag {
+        padding: 4px 8px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+      }
+      .link {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      /* About */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 10px;
+      }
+      .about-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px;
+      }
+      .about ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .about li {
+        margin: 6px 0;
+        color: var(--muted);
+      }
+
+      /* Contact */
+      .contact {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 20px;
+      }
+      .form {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px;
+      }
+      .field {
+        margin-bottom: 12px;
+      }
+      .label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        background: #101116;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--text);
+        outline: none;
+      }
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .send {
+        background: var(--primary);
+        color: #141414;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .panel {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px;
+      }
+      .panel p {
+        color: var(--muted);
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 40px;
+        border-top: 1px solid var(--border);
+        padding: 22px 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .social {
+        display: flex;
+        gap: 10px;
+      }
+      .social a {
+        padding: 8px 10px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+      }
+      .credit {
+        opacity: 0.8;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero-grid,
+        .about,
+        .contact {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero h2 {
+          font-size: 34px;
+        }
+        .menu {
+          display: none;
+        }
+      }
+      @media (max-width: 480px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header aria-label="En-tête du site">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Accueil J-beno">
+          <span class="logo" aria-hidden="true"></span>
+          <div>
+            <h1>Jess-chic</h1>
+            <span>Styliste modeliste</span>
+          </div>
+        </a>
+        <nav class="menu" aria-label="Navigation principale">
+          <a href="#projets">Projets</a>
+          <a href="#a-propos">À propos</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="#contact">Demander un devis</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero container" id="top">
+      <div class="hero-grid">
+        <div>
+          <h2>L'art est ressenti et est transmis à travers mes créations.</h2>
+          <p>
+            Je crée des styles uniques et mode pour sublimer votre image et
+            captiver votre audience.
+          </p>
+
+          <div class="chips" aria-label="Compétences">
+            <span class="chip">Branding</span>
+            <span class="chip">Affiche & Event</span>
+            <span class="chip">UI/UX</span>
+            <span class="chip">Illustration</span>
+            <span class="chip">Social Media</span>
+          </div>
+
+          <div class="chips" aria-label="Disponibilité">
+            <span class="chip">Disponible freelance & mission</span>
+            <span class="chip">Réponse sous 24h</span>
+            <span class="chip">Basé à Région (FR)</span>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Aperçu de projet">
+          <div class="hero-preview">
+            <img src="jess3.jpeg" alt="" />
+          </div>
+          <div
+            style="
+              margin-top: 14px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <span style="color: var(--muted)"
+              >Projet vedette: Identité Pink & White</span
+            >
+            <a class="link" href="#projets">Voir la galerie →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="container" id="projets" aria-label="Galerie de projets">
+      <div class="section-head">
+        <div>
+          <h3>Projets sélectionnés</h3>
+          <p>Un aperçu de mes réalisations. Filtrez par catégorie.</p>
+        </div>
+        <div class="filters" role="tablist" aria-label="Filtres de galerie">
+          <button
+            class="filter active"
+            data-filter="all"
+            role="tab"
+            aria-selected="true"
+          >
+            Tout
+          </button>
+          <button
+            class="filter"
+            data-filter="branding"
+            role="tab"
+            aria-selected="false"
+          >
+            Branding
+          </button>
+          <button
+            class="filter"
+            data-filter="affiche"
+            role="tab"
+            aria-selected="false"
+          >
+            Affiche
+          </button>
+          <button
+            class="filter"
+            data-filter="uiux"
+            role="tab"
+            aria-selected="false"
+          >
+            UI/UX
+          </button>
+          <button
+            class="filter"
+            data-filter="social"
+            role="tab"
+            aria-selected="false"
+          >
+            Social
+          </button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+        <!-- Ajoute ce bloc dans la section <div class="grid" id="grid"> -->
+
+        <!-- Projet 7 : All in Black -->
+        <article class="card" data-tags="affiche event">
+          <div class="thumb">
+            <img
+              src="jess6.jpeg"
+              alt="Affiche événement All in Black avec ambiance sombre et dorée"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="title">All in Black – Affiche</h4>
+            <div class="meta">
+              <span class="tag">Affiche</span>
+              <span class="tag">Event</span>
+              <span>2025</span>
+            </div>
+            <div class="card-footer">
+              <a
+                class="link"
+                href="jess6.jpeg"
+                aria-label="Voir le projet All in Black"
+                >Voir</a
+              >
+              <span style="color: var(--muted)">Photoshop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 8 : Big Burger -->
+        <article class="card" data-tags="food affiche">
+          <div class="thumb">
+            <img
+              src="jess4.jpeg"
+              alt="Visuel publicitaire Big Burger avec ingrédients en lévitation"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="title">l'art de la photographie</h4>
+            <div class="meta">
+              <span class="tag">scuplture</span>
+              <span class="tag">top reel</span>
+              <span>2025</span>
+            </div>
+            <div class="card-footer">
+              <a
+                class="link"
+                href="jess4.jpeg"
+                aria-label="Voir le projet Big Burger"
+                >Voir</a
+              >
+              <span style="color: var(--muted)">Illustrator</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 9 : Concours Culinaire -->
+        <article class="card" data-tags="culinaire affiche event">
+          <div class="thumb">
+            <img
+              src="jess5.jpeg"
+              alt="Affiche concours culinaire avec plats colorés et ambiance festive"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="title">Concours Culinaire – Club Smile</h4>
+            <div class="meta">
+              <span class="tag">Culinaire</span>
+              <span class="tag">Event</span>
+              <span>2025</span>
+            </div>
+            <div class="card-footer">
+              <a
+                class="link"
+                href="jess5.jpeg"
+                aria-label="Voir le projet Concours Culinaire"
+                >Voir</a
+              >
+              <span style="color: var(--muted)">Photoshop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 10 : Conférence Trading -->
+        <article class="card" data-tags="trading affiche event">
+          <div class="thumb">
+            <img
+              src="jess1.jpeg"
+              alt="Affiche conférence trading avec Jeph l'entrepreneur"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="title">Conférence Trading – Weltrade</h4>
+            <div class="meta">
+              <span class="tag">Trading</span>
+              <span class="tag">Event</span>
+              <span>2025</span>
+            </div>
+            <div class="card-footer">
+              <a
+                class="link"
+                href="jess1.jpeg"
+                aria-label="Voir le projet Conférence Trading"
+                >Voir</a
+              >
+              <span style="color: var(--muted)">Photoshop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 11 : Pink & White -->
+        <article class="card" data-tags="affiche festif event">
+          <div class="thumb">
+            <img
+              src="jess2.jpeg"
+              alt="Affiche Pink & White festive avec ambiance élégante"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="title">Pink & White – LaLoveDecember</h4>
+            <div class="meta">
+              <span class="tag">Festif</span>
+              <span class="tag">Affiche</span>
+              <span>2025</span>
+            </div>
+            <div class="card-footer">
+              <a
+                class="link"
+                href="jess2.jpeg"
+                aria-label="Voir le projet Pink & White"
+                >Voir</a
+              >
+              <span style="color: var(--muted)">Photoshop</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projet 12 : Promo Septembre -->
+        <article class="card" data-tags="branding affiche promo">
+          <div class="thumb">
+            <img
+              src="jess3.jpeg"
+              alt="Visuel promo design graphisme avec -50% et services listés"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="title">Promo Septembre – Design Graphisme</h4>
+            <div class="meta">
+              <span class="tag">Branding</span>
+              <span class="tag">Promo</span>
+              <span>2025</span>
+            </div>
+            <div class="card-footer">
+              <a
+                class="link"
+                href="jess3.jpeg"
+                aria-label="Voir le projet Promo Septembre"
+                >Voir</a
+              >
+              <span style="color: var(--muted)">L 'art / le style </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="container" id="a-propos" aria-label="À propos de moi">
+      <div class="section-head">
+        <div>
+          <h3>À propos</h3>
+          <p>
+            styliste modeliste passionnée par la création de looks uniques et
+            tendance. Je mets mon expertise au service de votre image pour vous
+            aider à vous démarquer.Sensible aux détails et à l'esthétique, je
+            m'efforce de créer des styles qui reflètent votre personnalité et
+            captivent votre audience.
+          </p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="about-card">
+          <h4 style="margin-top: 0">Vision</h4>
+          <p>
+            La mode est bien plus qu’un vêtement : c’est un langage silencieux
+            qui raconte une histoire, une culture, une émotion. À travers chaque
+            coupe, chaque texture et chaque détail, le stylisme devient un acte
+            de narration visuelle — une manière d’exprimer l’identité sans
+            prononcer un mot. Mon approche du stylisme repose sur l’équilibre
+            entre esthétique, authenticité et intention. Je m’inspire des
+            contrastes : le minimalisme et l’exubérance, la tradition et la
+            modernité, la structure et la liberté. Chaque création est pensée
+            pour révéler une présence, sublimer une silhouette et capturer un
+            moment.
+          </p>
+          <ul>
+            <li>Approche centrée utilisateur et objectif</li>
+            <li>Livrables propres: PNG, SVG, PDF print-ready</li>
+            <li>Process clair: moodboard, maquette, itérations, livraison</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h4 style="margin-top: 0">Services</h4>
+          <ul>
+            <li>Branding & charte graphique</li>
+            <li>Affiches événementielles et social media</li>
+            <li>UI/UX pour web & mobile</li>
+            <li>Illustrations & assets (icônes, motifs, stickers)</li>
+          </ul>
+          <p style="color: var(--muted)">Je travaille avec</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="container" id="contact" aria-label="Me contacter">
+      <div class="section-head">
+        <div>
+          <h3>Contact</h3>
+          <p>Parlons de votre projet directement sur WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="field">
+          <a
+            class="send"
+            href="https://wa.me/22879890608?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%27informations%20sur%20vos%20services. "
+            target="_blank"
+            aria-label="Contactez-moi sur WhatsApp"
+          >
+            📱 Me contacter sur WhatsApp
+          </a>
+        </div>
+
+        <aside class="panel" aria-label="Informations complémentaires">
+          <h4 style="margin-top: 0">Infos</h4>
+          <p>
+            <strong>Disponibilité:</strong> Freelance, mission à distance ou sur
+            place.
+          </p>
+          <p><strong>Localisation:</strong> Région Maritime, Togo.</p>
+          <div class="social" aria-label="Réseaux sociaux">
+            <a
+              href="https://www.tiktok.com/@amenpablo0/"
+              target="_blank"
+              aria-label="Tiktok"
+              >Tiktok</a
+            >
+            <a
+              href="https://www.instagram.com/marcel.manager/"
+              target="_blank"
+              aria-label="Instagram"
+              >Instagram</a
+            >
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer aria-label="Pied de page">
+      <div class="container foot">
+        <span class="credit">© 2025 Jess. Tous droits réservés.</span>
+        <div class="social">
+          <a href="#top">Haut de page</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Filtrage de la galerie
+      const filters = document.querySelectorAll(".filter");
+      const cards = document.querySelectorAll(".card");
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filters.forEach((f) => {
+            f.classList.remove("active");
+            f.setAttribute("aria-selected", "false");
+          });
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+
+          const key = btn.dataset.filter;
+          cards.forEach((card) => {
+            const tags = (card.dataset.tags || "").split(" ");
+            const show = key === "all" || tags.includes(key);
+            card.style.display = show ? "" : "none";
+          });
+        });
+      });
+
+      // Simuler l'envoi du formulaire (frontend uniquement)
+      function handleSubmit(e) {
+        e.preventDefault();
+        const status = document.getElementById("status");
+        status.textContent =
+          "Merci ! Votre message a été bien reçu. Je vous réponds sous 24h.";
+        e.target.reset();
+      }
+    </script>
+  </body>
+</html>
